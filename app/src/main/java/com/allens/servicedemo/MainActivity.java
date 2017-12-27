@@ -13,6 +13,7 @@ import android.view.View;
 import com.allens.servicedemo.Service.BindService;
 import com.allens.servicedemo.Service.FrontService;
 import com.allens.servicedemo.Service.LocalService;
+import com.allens.servicedemo.Service.MyIntentService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -112,6 +113,14 @@ public class MainActivity extends AppCompatActivity {
                     //自己控制引用的myBinder对象
                     binder = null;
                 }
+            }
+        });
+
+
+        findViewById(R.id.intentService).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyIntentService.startActionBaz(MainActivity.this,"test1");
             }
         });
     }

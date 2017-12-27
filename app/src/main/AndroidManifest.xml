@@ -36,6 +36,9 @@
                 <action android:name="com.allens.servicedemo.IServer" />
             </intent-filter>
         </service>
+
+
+        <service android:name=".Service.MyIntentService" />
     </application>
 
 </manifest>
