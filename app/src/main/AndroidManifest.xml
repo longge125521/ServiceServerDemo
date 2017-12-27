@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.allens.servicedemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <service android:name=".Service.LocalService" />
+
+        <service android:name=".Service.BindService" />
+
+        <service android:name=".Service.FrontService" />
+
+
+        <!-- process 设置具体的进程名称-->
+        <!-- exported 该服务能被其他应用程序所控制或连接 -->
+        <service
+            android:name=".Service.ServerService"
+            android:exported="true"
+            android:process=":div">
+            <!--此处Intent的action必须写成“服务器端包名.aidl文件名”-->
+            <intent-filter>
+                <action android:name="com.allens.servicedemo.IServer" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
